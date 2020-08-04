@@ -1,8 +1,13 @@
-" Name:    blackhole vim colorscheme
-" Author:  Sajjad alDalwachee
+"
+"  -----------------------------------------------------------------------------
+" Name: blackhole
+" File: blackhole.vim
+" Description: blackhole color scheme for Vim
+" Author: Sajjad alDalwachee
 " License: MIT
 " Version: 1.0.0
-
+"  -----------------------------------------------------------------------------
+"
 " Global setup =============================================================={{{
 
 if exists("*<SID>X")
