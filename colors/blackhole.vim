@@ -8,7 +8,7 @@
 " Version: 1.0.0
 "  -----------------------------------------------------------------------------
 "
-" Global setup =============================================================={{{
+" Global setup --------------------------------------------------------------{{{
 
 if exists("*<SID>X")
   delf <SID>X
@@ -529,7 +529,7 @@ if has('gui_running') || has('termguicolors') || &t_Co == 88 || &t_Co == 256
   call <sid>X('cssStringQQ',          s:hue_4,  '', '')
   call <sid>X('cssTagName',           s:hue_5,  '', '')
   call <sid>X('cssAttr',              s:hue_6,  '', '')
-
+  " Sass highlighting
   call <sid>X('sassAmpersand',      s:hue_5,   '', '')
   call <sid>X('sassClass',          s:hue_6_2, '', '')
   call <sid>X('sassControl',        s:hue_3,   '', '')
@@ -844,7 +844,7 @@ if has('gui_running') || has('termguicolors') || &t_Co == 88 || &t_Co == 256
   call <sid>X('ALEErrorSign', s:hue_5,   '', '')
 
 
-   " Neovim NERDTree Background fix ------------------------------------------{{{
+  " Neovim NERDTree Background fix ------------------------------------------{{{
   call <sid>X('NERDTreeFile', s:syntax_fg, '', '')
   " }}}
 
@@ -868,23 +868,23 @@ if has('gui_running') || has('termguicolors') || &t_Co == 88 || &t_Co == 256
     let g:terminal_color_15 = "#e3e5e9"
   endif
 
-  " Delete functions =========================================================={{{
-  " delf <SID>X
-  " delf <SID>XAPI
-  " delf <SID>rgb
-  " delf <SID>color
-  " delf <SID>rgb_color
-  " delf <SID>rgb_level
-  " delf <SID>rgb_number
-  " delf <SID>grey_color
-  " delf <SID>grey_level
-  " delf <SID>grey_number
+  " Delete functions --------------------------------------------------------{{{
+    " delf <SID>X
+    " delf <SID>XAPI
+    " delf <SID>rgb
+    " delf <SID>color
+    " delf <SID>rgb_color
+    " delf <SID>rgb_level
+    " delf <SID>rgb_number
+    " delf <SID>grey_color
+    " delf <SID>grey_level
+    " delf <SID>grey_number
   " }}}
 
 endif
 "}}}
 
-" Public API --------------------------------------------------------------{{{
+" Public API ----------------------------------------------------------------{{{
 function! blackhole#highlight(group, fg, bg, attr)
   call <sid>XAPI(a:group, a:fg, a:bg, a:attr)
 endfunction
@@ -895,3 +895,4 @@ if exists('s:dark') && s:dark
 endif
 
 " vim: set fdl=0 fdm=marker:
+
