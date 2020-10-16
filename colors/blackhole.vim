@@ -315,7 +315,7 @@ if has('gui_running') || has('termguicolors') || &t_Co == 88 || &t_Co == 256
 
     let s:syntax_bg     = ['#000000', '255']
     let s:syntax_gutter = ['#636d83', '60']
-    let s:syntax_cursor = ['#202020', '16']
+    let s:syntax_cursor = ['#101010', '233']
 
     let s:syntax_accent = ['#528bff', '69']
 
@@ -374,7 +374,7 @@ if has('gui_running') || has('termguicolors') || &t_Co == 88 || &t_Co == 256
   call <sid>X('FoldColumn',   s:mono_3,        s:syntax_cursor,  '')
   call <sid>X('IncSearch',    s:hue_6,         '',               '')
   call <sid>X('LineNr',       s:mono_4,        '',               '')
-  call <sid>X('CursorLineNr', s:syntax_fg,     s:syntax_cursor,  'none')
+  call <sid>X('CursorLineNr', s:hue_5_2,       s:syntax_cursor,  'bold')
   call <sid>X('MatchParen',   s:hue_5,         s:syntax_cursor,  'underline,bold')
   call <sid>X('Italic',       '',              '',               s:italic)
   call <sid>X('ModeMsg',      s:syntax_fg,     '',               '')

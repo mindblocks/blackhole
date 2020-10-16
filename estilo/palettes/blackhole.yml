@@ -16,7 +16,7 @@ hue_6_2: '#e5c07b' # orange 2
 
 syntax_bg: '#000000'
 syntax_gutter: '#636d83'
-syntax_cursor: '#202020'
+syntax_cursor: '#101010'
 
 syntax_accent: '#528bff'
 
