@@ -770,8 +770,14 @@ hi! link GitGutterChangeDelete BlackholeAquaSign
 " }}}
 " GitCommit: "{{{
 
-hi! link gitcommitSelectedFile BlackholeGreen
+hi! link gitcommitBlank BlackholeRedBold
+hi! link gitcommitBranch BlackholeAquaBold
 hi! link gitcommitDiscardedFile BlackholeRed
+hi! link gitcommitDiscardedType BlackholeRedBold
+hi! link gitcommitHeader BlackholeFg0
+hi! link gitcommitSelectedFile BlackholeGreen
+hi! link gitcommitSelectedType BlackholeGreenBold
+hi! link gitcommitSummary BlackholeAqua
 
 " }}}
 " Signify: {{{
