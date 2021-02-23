@@ -88,6 +88,9 @@ let s:is_dark=(&background == 'dark')
 let s:color = {}
 
 " fill it with absolute colors
+let s:color.black       = ['#000000', 234]     " 29-32-33
+let s:color.white       = ['#F3F3F3', 234]     " 29-32-33
+
 let s:color.dark0_hard  = ['#000000', 234]     " 29-32-33
 let s:color.dark0       = ['#101010', 235]     " 40-40-40
 let s:color.dark0_soft  = ['#202020', 236]     " 50-48-47
@@ -109,12 +112,12 @@ let s:color.light3      = ['#bdae93', 248]     " 189-174-147
 let s:color.light4      = ['#a89984', 246]     " 168-153-132
 let s:color.light4_256  = ['#a89984', 246]     " 168-153-132
 
-let s:color.bright_red     = ['#fb4934', 167]     " 251-73-52
-let s:color.bright_green   = ['#b8bb26', 142]     " 184-187-38
-let s:color.bright_yellow  = ['#fabd2f', 214]     " 250-189-47
-let s:color.bright_blue    = ['#83a598', 109]     " 131-165-152
+let s:color.bright_red     = ['#E8364B', 167]     " 251-73-52
+let s:color.bright_green   = ['#2FAE4A', 142]     " 184-187-38
+let s:color.bright_yellow  = ['#F6DD36', 214]     " 250-189-47
+let s:color.bright_blue    = ['#4AB3E5', 109]     " 131-165-152
 let s:color.bright_purple  = ['#d3869b', 175]     " 211-134-155
-let s:color.bright_aqua    = ['#8ec07c', 108]     " 142-192-124
+let s:color.bright_aqua    = ['#038C7F', 108]     " 142-192-124
 let s:color.bright_orange  = ['#fe8019', 208]     " 254-128-25
 
 let s:color.neutral_red    = ['#cc241d', 124]     " 204-36-29
@@ -192,6 +195,8 @@ if s:is_dark
 
   let s:fg4_256 = s:color.light4_256
 
+  let s:black  = s:color.black
+  let s:white  = s:color.white
   let s:red    = s:color.bright_red
   let s:green  = s:color.bright_green
   let s:yellow = s:color.bright_yellow
@@ -222,6 +227,8 @@ else
 
   let s:fg4_256 = s:color.dark4_256
 
+  let s:black  = s:color.black
+  let s:white  = s:color.white
   let s:red    = s:color.faded_red
   let s:green  = s:color.faded_green
   let s:yellow = s:color.faded_yellow
@@ -262,6 +269,8 @@ let s:color.fg4 = s:fg4
 
 let s:color.fg4_256 = s:fg4_256
 
+let s:color.black  = s:black
+let s:color.white  = s:white
 let s:color.red    = s:red
 let s:color.green  = s:green
 let s:color.yellow = s:yellow
@@ -435,6 +444,10 @@ call s:HighLight('BlackholeBg2', s:bg2)
 call s:HighLight('BlackholeBg3', s:bg3)
 call s:HighLight('BlackholeBg4', s:bg4)
 
+call s:HighLight('BlackholeBlack', s:black)
+call s:HighLight('BlackholeBlackBold', s:black, s:none, s:bold)
+call s:HighLight('BlackholeWhite', s:white)
+call s:HighLight('BlackholeWhiteBold', s:white, s:none, s:bold)
 call s:HighLight('BlackholeRed', s:red)
 call s:HighLight('BlackholeRedBold', s:red, s:none, s:bold)
 call s:HighLight('BlackholeGreen', s:green)
@@ -464,7 +477,7 @@ call s:HighLight('BlackholeOrangeSign', s:orange, s:sign_column, s:invert_signs)
 " General UI: {{{
 
 " Normal text
-call s:HighLight('Normal', s:fg1, s:bg0)
+call s:HighLight('Normal', s:fg1, s:black)
 
 if s:is_dark
   set background=dark
@@ -531,7 +544,7 @@ call s:HighLight('ErrorMsg',   s:red, s:none, s:undercurl)
 " More prompt: -- More --
 hi! link MoreMsg BlackholeYellowBold
 " Current mode message: -- INSERT --
-hi! link ModeMsg BlackholeYellowBold
+hi! link ModeMsg BlackholeWhiteBold
 " 'Press enter' prompt and yes/no questions
 hi! link Question BlackholeOrangeBold
 " Warning messages
@@ -594,7 +607,7 @@ hi! link Keyword BlackholeRed
 " Variable name
 hi! link Identifier BlackholeBlue
 " Function name
-hi! link Function BlackholeGreenBold
+hi! link Function BlackholeWhiteBold
 
 " Generic preprocessor
 hi! link PreProc BlackholeAqua
@@ -1028,22 +1041,23 @@ hi! link cStructure BlackholeOrange
 " }}}
 " Python: {{{
 
-hi! link pythonBuiltin BlackholeOrange
+hi! link pythonBuiltin BlackholeOrangeBold
 hi! link pythonBuiltinObj BlackholeOrange
 hi! link pythonBuiltinFunc BlackholeOrange
-hi! link pythonFunction BlackholeAqua
-hi! link pythonDecorator BlackholeRed
+hi! link pythonFunction BlackholeWhiteBold
+hi! link pythonStatement BlackholeAquaBold
+hi! link pythonDecorator BlackholeRedBold
 hi! link pythonInclude BlackholeBlue
 hi! link pythonImport BlackholeBlue
 hi! link pythonRun BlackholeBlue
 hi! link pythonCoding BlackholeBlue
-hi! link pythonOperator BlackholeRed
+hi! link pythonOperator BlackholeRedBold
 hi! link pythonException BlackholeRed
 hi! link pythonExceptions BlackholePurple
 hi! link pythonBoolean BlackholePurple
-hi! link pythonDot BlackholeFg3
-hi! link pythonConditional BlackholeRed
-hi! link pythonRepeat BlackholeRed
+hi! link pythonDot BlackholeOrange
+hi! link pythonConditional BlackholeRedBold
+hi! link pythonRepeat BlackholeRedBold
 hi! link pythonDottedName BlackholeGreenBold
 
 " }}}
