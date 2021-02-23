@@ -112,12 +112,12 @@ let s:color.light3      = ['#bdae93', 248]     " 189-174-147
 let s:color.light4      = ['#a89984', 246]     " 168-153-132
 let s:color.light4_256  = ['#a89984', 246]     " 168-153-132
 
-let s:color.bright_red     = ['#E8364B', 167]     " 251-73-52
-let s:color.bright_green   = ['#2FAE4A', 142]     " 184-187-38
-let s:color.bright_yellow  = ['#F6DD36', 214]     " 250-189-47
-let s:color.bright_blue    = ['#4AB3E5', 109]     " 131-165-152
-let s:color.bright_purple  = ['#d3869b', 175]     " 211-134-155
-let s:color.bright_aqua    = ['#038C7F', 108]     " 142-192-124
+let s:color.bright_red     = ['#e8364b', 167]     " 251-73-52
+let s:color.bright_green   = ['#12a600', 142]     " 184-187-38
+let s:color.bright_yellow  = ['#f6dd36', 214]     " 250-189-47
+let s:color.bright_blue    = ['#4ab3e5', 109]     " 131-165-152
+let s:color.bright_purple  = ['#b886dd', 175]     " 211-134-155
+let s:color.bright_aqua    = ['#00dfff', 108]     " 142-192-124
 let s:color.bright_orange  = ['#fe8019', 208]     " 254-128-25
 
 let s:color.neutral_red    = ['#cc241d', 124]     " 204-36-29
@@ -542,13 +542,13 @@ hi! link Title BlackholeGreenBold
 " Error messages on the command line
 call s:HighLight('ErrorMsg',   s:red, s:none, s:undercurl)
 " More prompt: -- More --
-hi! link MoreMsg BlackholeYellowBold
+hi! link MoreMsg BlackholeRedBold
 " Current mode message: -- INSERT --
 hi! link ModeMsg BlackholeWhiteBold
 " 'Press enter' prompt and yes/no questions
-hi! link Question BlackholeOrangeBold
+hi! link Question BlackholeOrange
 " Warning messages
-hi! link WarningMsg BlackholeRedBold
+hi! link WarningMsg BlackholeYellow
 
 " }}}
 " Gutter: {{{
@@ -586,19 +586,19 @@ else
 endif
 
 call s:HighLight('Comment', s:gray, s:none, s:italicize_comments)
-call s:HighLight('Todo', s:vim_fg, s:vim_bg, s:bold . s:italic)
-call s:HighLight('Error', s:red, s:vim_bg, s:bold . s:inverse)
+call s:HighLight('Todo', s:gray, s:none, s:bold . s:italic)
+call s:HighLight('Error', s:red, s:none, s:bold . s:inverse)
 
 " Generic statement
-hi! link Statement BlackholeRed
+hi! link Statement BlackholeRedBold
 " if, then, else, endif, swicth, etc.
-hi! link Conditional BlackholeRed
+hi! link Conditional BlackholeRedBold
 " for, do, while, etc.
-hi! link Repeat BlackholeRed
+hi! link Repeat BlackholeRedBold
 " case, default, etc.
-hi! link Label BlackholeRed
+hi! link Label BlackholeRedBold
 " try, catch, throw
-hi! link Exception BlackholeRed
+hi! link Exception BlackholeRedBold
 " sizeof, "+", "*", etc.
 hi! link Operator Normal
 " Any other keyword
@@ -610,9 +610,9 @@ hi! link Identifier BlackholeBlue
 hi! link Function BlackholeWhiteBold
 
 " Generic preprocessor
-hi! link PreProc BlackholeAqua
+hi! link PreProc BlackholeBlue
 " Preprocessor #include
-hi! link Include BlackholeAqua
+hi! link Include BlackholePurple
 " Preprocessor #define
 hi! link Define BlackholeAqua
 " Same as Define
@@ -623,7 +623,7 @@ hi! link PreCondit BlackholeAqua
 " Generic constant
 hi! link Constant BlackholePurple
 " Character constant: 'c', '/n'
-hi! link Character BlackholePurple
+hi! link Character BlackholePurpleBold
 " String constant: "this is a string"
 if g:blackhole_improved_strings == 0
   call s:HighLight('String',  s:green, s:none, s:italicize_strings)
@@ -638,7 +638,7 @@ hi! link Number BlackholePurple
 hi! link Float BlackholePurple
 
 " Generic type
-hi! link Type BlackholeYellow
+hi! link Type BlackholeWhiteBold
 " static, register, volatile, etc
 hi! link StorageClass BlackholeOrange
 " struct, union, enum, etc.
@@ -651,9 +651,9 @@ hi! link Typedef BlackholeYellow
 
 if version >= 700
   " Popup menu: normal item
-  call s:HighLight('Pmenu', s:fg1, s:bg2)
+  call s:HighLight('Pmenu', s:fg0, s:bg1)
   " Popup menu: selected item
-  call s:HighLight('PmenuSel', s:bg2, s:blue, s:bold)
+  call s:HighLight('PmenuSel', s:black, s:aqua, s:bold)
   " Popup menu: scrollbar
   call s:HighLight('PmenuSbar', s:none, s:bg2)
   " Popup menu: scrollbar thumb
