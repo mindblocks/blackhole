@@ -437,7 +437,6 @@ call s:HighLight('BlackholeFg1', s:fg1)
 call s:HighLight('BlackholeFg2', s:fg2)
 call s:HighLight('BlackholeFg3', s:fg3)
 call s:HighLight('BlackholeFg4', s:fg4)
-call s:HighLight('BlackholeGray', s:gray)
 call s:HighLight('BlackholeBg0', s:bg0)
 call s:HighLight('BlackholeBg1', s:bg1)
 call s:HighLight('BlackholeBg2', s:bg2)
@@ -446,6 +445,8 @@ call s:HighLight('BlackholeBg4', s:bg4)
 
 call s:HighLight('BlackholeBlack', s:black)
 call s:HighLight('BlackholeBlackBold', s:black, s:none, s:bold)
+call s:HighLight('BlackholeGray', s:gray)
+call s:HighLight('BlackholeGrayBold', s:gray, s:none, s:bold)
 call s:HighLight('BlackholeWhite', s:white)
 call s:HighLight('BlackholeWhiteBold', s:white, s:none, s:bold)
 call s:HighLight('BlackholeRed', s:red)
@@ -600,7 +601,7 @@ hi! link Label BlackholeRedBold
 " try, catch, throw
 hi! link Exception BlackholeRedBold
 " sizeof, "+", "*", etc.
-hi! link Operator Normal
+hi! link Operator BlackholeOrange
 " Any other keyword
 hi! link Keyword BlackholeRed
 
@@ -879,14 +880,15 @@ hi! link netrwVersion BlackholeGreen
 " }}}
 " NERDTree: {{{
 
-hi! link NERDTreeDir BlackholeAqua
-hi! link NERDTreeDirSlash BlackholeAqua
+hi! link NERDTreeDir BlackholeGrayBold
+hi! link NERDTreeDirSlash BlackholeWhite
+hi! link NERDTreeFlags BlackholeGray
 
-hi! link NERDTreeOpenable BlackholeOrange
+hi! link NERDTreeOpenable BlackholeFg3
 hi! link NERDTreeClosable BlackholeOrange
 
 hi! link NERDTreeFile BlackholeFg1
-hi! link NERDTreeExecFile BlackholeYellow
+hi! link NERDTreeExecFile BlackholeGreen
 
 hi! link NERDTreeUp BlackholeGray
 hi! link NERDTreeCWD BlackholeGreen
