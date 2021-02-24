@@ -1055,8 +1055,8 @@ hi! link pythonBuiltinFunc BlackholeOrange
 hi! link pythonFunction BlackholeWhiteBold
 hi! link pythonStatement BlackholeAquaBold
 hi! link pythonDecorator BlackholeRedBold
-hi! link pythonInclude BlackholeBlue
-hi! link pythonImport BlackholeBlue
+hi! link pythonInclude BlackholePurple
+hi! link pythonImport BlackholePurple
 hi! link pythonRun BlackholeBlue
 hi! link pythonCoding BlackholeBlue
 hi! link pythonOperator BlackholeRedBold
@@ -1074,7 +1074,7 @@ hi! link pythonDottedName BlackholeGreenBold
 hi! link cssBraces BlackholeBlue
 hi! link cssFunctionName BlackholeYellow
 hi! link cssIdentifier BlackholeOrange
-hi! link cssClassName BlackholeGreen
+hi! link cssClassName BlackholeWhiteBold
 hi! link cssColor BlackholeBlue
 hi! link cssSelectorOp BlackholeBlue
 hi! link cssSelectorOp2 BlackholeBlue
@@ -1198,18 +1198,20 @@ hi! link javascriptAwaitFuncKeyword BlackholeRed
 " }}}
 " PanglossJS: {{{
 
-hi! link jsClassKeyword BlackholeAqua
+hi! link jsClassKeyword BlackholeAquaBold
 hi! link jsExtendsKeyword BlackholeAqua
+hi! link jsAsyncKeyword BlackholeRedBold
+hi! link jsForAwait BlackholeRedBold
 hi! link jsExportDefault BlackholeAqua
 hi! link jsTemplateBraces BlackholeAqua
 hi! link jsGlobalNodeObjects BlackholeFg1
 hi! link jsGlobalObjects BlackholeFg1
-hi! link jsFunction BlackholeAqua
+hi! link jsFunction BlackholeAquaBold
 hi! link jsFuncParens BlackholeFg3
 hi! link jsParens BlackholeFg3
 hi! link jsNull BlackholePurple
 hi! link jsUndefined BlackholePurple
-hi! link jsClassDefinition BlackholeYellow
+hi! link jsClassDefinition BlackholeWhiteBold
 
 " }}}
 " TypeScript: {{{
@@ -1265,6 +1267,8 @@ hi! link coffeeBracket BlackholeOrange
 " }}}
 " Ruby: {{{
 
+hi! link rubyClass BlackholeAquaBold
+hi! link rubyDefine BlackholeAquaBold
 hi! link rubyStringDelimiter BlackholeGreen
 hi! link rubyInterpolationDelimiter BlackholeAqua
 
