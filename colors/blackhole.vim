@@ -113,7 +113,7 @@ let s:color.light4         = ['#a89984', 246]     " 168, 153, 132
 let s:color.light4_256     = ['#a89984', 246]     " 168, 153, 132
 
 let s:color.bright_red     = ['#e8364b', 167]     " 232, 54, 75
-let s:color.bright_green   = ['#008000', 28]      " 0, 128, 0
+let s:color.bright_green   = ['#078C03', 28]      " 7, 140, 3
 let s:color.bright_yellow  = ['#f6dd36', 221]     " 246, 221, 54
 let s:color.bright_blue    = ['#4ab3e5', 75]      " 74, 179, 229
 let s:color.bright_purple  = ['#b886dd', 140]     " 184, 134, 221
@@ -1009,6 +1009,8 @@ hi! link vimFuncSID BlackholeFg3
 hi! link vimSetSep BlackholeFg3
 hi! link vimSep BlackholeFg3
 hi! link vimContinue BlackholeFg3
+hi! link vimGroup BlackholePurple
+hi! link vimVar BlackholeAqua
 
 " }}}
 " Clojure: {{{
@@ -1318,6 +1320,9 @@ hi! link javaParen3 BlackholeFg3
 hi! link javaParen4 BlackholeFg3
 hi! link javaParen5 BlackholeFg3
 hi! link javaOperator BlackholeOrange
+hi! link javaClassDecl BlackholeAquaBold
+hi! link javaAnnotation BlackholeYellowBold
+hi! link javaTypedef BlackholeAqua
 
 hi! link javaVarArg BlackholeGreen
 
