@@ -543,9 +543,9 @@ hi! link Title BlackholeGreenBold
 " Error messages on the command line
 call s:HighLight('ErrorMsg',   s:red, s:none, s:undercurl)
 " More prompt: -- More --
-hi! link MoreMsg BlackholeRedBold
+hi! link MoreMsg BlackholeGrayBold
 " Current mode message: -- INSERT --
-hi! link ModeMsg BlackholeWhiteBold
+hi! link ModeMsg BlackholeGrayBold
 " 'Press enter' prompt and yes/no questions
 hi! link Question BlackholeOrange
 " Warning messages
@@ -1217,9 +1217,12 @@ hi! link jsClassDefinition BlackholeWhiteBold
 " TypeScript: {{{
 
 hi! link typeScriptReserved BlackholeAqua
+hi! link typeScriptImport BlackholePurple
 hi! link typeScriptLabel BlackholeAqua
-hi! link typeScriptFuncKeyword BlackholeAqua
-hi! link typeScriptIdentifier BlackholeOrange
+
+hi! link typescriptClassKeyword BlackholeAquaBold
+hi! link typeScriptFuncKeyword BlackholeAquaBold
+hi! link typeScriptIdentifier BlackholeAquaBold
 hi! link typeScriptBraces BlackholeFg1
 hi! link typeScriptEndColons BlackholeFg1
 hi! link typeScriptDOMObjects BlackholeFg1
