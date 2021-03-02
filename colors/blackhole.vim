@@ -1062,7 +1062,7 @@ hi! link pythonImport BlackholePurple
 hi! link pythonRun BlackholeBlue
 hi! link pythonCoding BlackholeBlue
 hi! link pythonOperator BlackholeRedBold
-hi! link pythonException BlackholeRed
+hi! link pythonException BlackholeRedBold
 hi! link pythonExceptions BlackholePurple
 hi! link pythonBoolean BlackholePurple
 hi! link pythonDot BlackholeOrange
