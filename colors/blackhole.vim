@@ -79,7 +79,7 @@ if !exists('g:blackhole_contrast_light')
   let g:blackhole_contrast_light='medium'
 endif
 
-let s:is_dark=(&background == 'dark')
+let s:isdark=(&background == 'dark')
 
 " }}}
 " Palette: {{{
@@ -113,7 +113,7 @@ let s:color.light4         = ['#a89984', 246]     " 168, 153, 132
 let s:color.light4_256     = ['#a89984', 246]     " 168, 153, 132
 
 let s:color.bright_red     = ['#e8364b', 167]     " 232, 54, 75
-let s:color.bright_green   = ['#078C03', 28]      " 7, 140, 3
+let s:color.bright_green   = ['#228B22', 28]      " 34, 139, 34
 let s:color.bright_yellow  = ['#f6dd36', 221]     " 246, 221, 54
 let s:color.bright_blue    = ['#4ab3e5', 75]      " 74, 179, 229
 let s:color.bright_purple  = ['#b886dd', 140]     " 184, 134, 221
@@ -172,7 +172,10 @@ let s:vim_fg = ['fg', 'fg']
 let s:none = ['NONE', 'NONE']
 
 " determine relative colors
-if s:is_dark
+
+if s:isdark
+
+  """ Dark Mode
   let s:bg0  = s:color.dark0_hard
   if g:blackhole_contrast_dark == 'soft'
     let s:bg0  = s:color.dark0_soft
@@ -180,10 +183,10 @@ if s:is_dark
     let s:bg0  = s:color.dark0_hard
   endif
 
-  let s:bg1  = s:color.dark0
-  let s:bg2  = s:color.dark2
-  let s:bg3  = s:color.dark3
-  let s:bg4  = s:color.dark4
+  let s:bg1 = s:color.dark0
+  let s:bg2 = s:color.dark2
+  let s:bg3 = s:color.dark3
+  let s:bg4 = s:color.dark4
 
   let s:gray = s:color.gray_245
 
@@ -204,7 +207,10 @@ if s:is_dark
   let s:purple = s:color.bright_purple
   let s:aqua   = s:color.bright_aqua
   let s:orange = s:color.bright_orange
+
 else
+
+  """ Light Mode
   let s:bg0  = s:color.light0
   if g:blackhole_contrast_light == 'soft'
     let s:bg0  = s:color.light0_soft
@@ -212,10 +218,10 @@ else
     let s:bg0  = s:color.light0_hard
   endif
 
-  let s:bg1  = s:color.light1
-  let s:bg2  = s:color.light2
-  let s:bg3  = s:color.light3
-  let s:bg4  = s:color.light4
+  let s:bg1 = s:color.light1
+  let s:bg2 = s:color.light2
+  let s:bg3 = s:color.light3
+  let s:bg4 = s:color.light4
 
   let s:gray = s:color.gray_244
 
@@ -236,6 +242,7 @@ else
   let s:purple = s:color.faded_purple
   let s:aqua   = s:color.faded_aqua
   let s:orange = s:color.faded_orange
+
 endif
 
 " reset to 16 colors fallback
@@ -480,7 +487,7 @@ call s:HighLight('BlackholeOrangeSign', s:orange, s:sign_column, s:invert_signs)
 " Normal text
 call s:HighLight('Normal', s:fg1, s:black)
 
-if s:is_dark
+if s:isdark
   set background=dark
 else
   set background=light
