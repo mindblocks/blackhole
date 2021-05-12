@@ -9,6 +9,7 @@
 " -----------------------------------------------------------------------------
 
 " Supporting code -------------------------------------------------------------
+
 " Initialisation: {{{
 
 if version > 580
@@ -25,6 +26,7 @@ if !(has('termguicolors') && &termguicolors) && !has('gui_running') && &t_Co != 
 endif
 
 " }}}
+
 " Global Settings: {{{
 
 if !exists('g:blackhole_bold')
@@ -82,6 +84,7 @@ endif
 let s:isdark=(&background == 'dark')
 
 " }}}
+
 " Palette: {{{
 
 " setup palette dictionary
@@ -91,6 +94,9 @@ let s:color = {}
 let s:color.black          = ['#000000', 0]       " 0, 0, 0
 let s:color.white          = ['#ffffff', 255]     " 255, 255, 255
 
+let s:color.gray_245       = ['#928374', 245]     " 146, 131, 116
+let s:color.gray_244       = ['#928374', 244]     " 146, 131, 116
+
 let s:color.dark0_hard     = ['#000000', 0]       " 0, 0, 0
 let s:color.dark0          = ['#101010', 233]     " 16, 16, 16
 let s:color.dark0_soft     = ['#202020', 234]     " 32, 32, 32
@@ -99,9 +105,6 @@ let s:color.dark2          = ['#404040', 237]     " 64, 64, 64
 let s:color.dark3          = ['#505050', 239]     " 80, 80, 80
 let s:color.dark4          = ['#606060', 241]     " 96, 96, 96
 let s:color.dark4_256      = ['#707070', 242]     " 112, 112, 112
-
-let s:color.gray_245       = ['#928374', 245]     " 146, 131, 116
-let s:color.gray_244       = ['#928374', 244]     " 146, 131, 116
 
 let s:color.light0_hard    = ['#f9f5d7', 230]     " 249, 245, 215
 let s:color.light0         = ['#fbf1c7', 229]     " 253, 244, 193
@@ -137,6 +140,7 @@ let s:color.faded_aqua     = ['#427b58', 66]      " 66, 123, 88
 let s:color.faded_orange   = ['#af3a03', 130]     " 175, 58, 3
 
 " }}}
+
 " Setup Emphasis: {{{
 
 let s:bold = 'bold,'
@@ -165,6 +169,7 @@ if g:blackhole_inverse == 0
 endif
 
 " }}}
+
 " Setup Colors: {{{
 
 let s:vimbg = ['bg',   'bg'  ]
@@ -287,6 +292,7 @@ let s:color.aqua   = s:aqua
 let s:color.orange = s:orange
 
 " }}}
+
 " Setup Terminal Colors For Neovim: {{{
 
 if has('nvim')
@@ -316,6 +322,7 @@ if has('nvim')
 endif
 
 " }}}
+
 " Overload Setting: {{{
 
 let s:hls_cursor = s:orange
@@ -387,6 +394,7 @@ if exists('g:blackhole_italicize_strings')
 endif
 
 " }}}
+
 " Highlighting Function: {{{
 
 function! s:HighLight(group, fg, ...)
@@ -436,9 +444,10 @@ function! s:HighLight(group, fg, ...)
 endfunction
 
 " }}}
-" Blackhole Hi Groups: {{{
 
-" memoize common hi groups
+" Blackhole HighLight Groups: {{{
+
+" memoize common highLight groups
 call s:HighLight('BlackholeFg0', s:fg0)
 call s:HighLight('BlackholeFg1', s:fg1)
 call s:HighLight('BlackholeFg2', s:fg2)
@@ -482,6 +491,7 @@ call s:HighLight('BlackholeOrangeSign', s:orange, s:sign_column, s:invert_signs)
 " }}}
 
 " Vanilla colorscheme ---------------------------------------------------------
+
 " General UI: {{{
 
 " Normal text
@@ -561,6 +571,7 @@ hi! link Question BlackholeOrange
 hi! link WarningMsg BlackholeYellow
 
 " }}}
+
 " Gutter: {{{
 
 " Line number for :number and :# commands
@@ -575,6 +586,7 @@ call s:HighLight('Folded', s:gray, s:bg1, s:italic)
 call s:HighLight('FoldColumn', s:gray, s:bg1)
 
 " }}}
+
 " Cursor: {{{
 
 " Character under cursor
@@ -657,6 +669,7 @@ hi! link Structure BlackholeAqua
 hi! link Typedef BlackholeYellow
 
 " }}}
+
 " Completion Menu: {{{
 
 if version >= 700
@@ -671,6 +684,7 @@ if version >= 700
 endif
 
 " }}}
+
 " Diffs: {{{
 
 call s:HighLight('DiffDelete', s:red, s:bg0, s:inverse)
@@ -683,6 +697,7 @@ call s:HighLight('DiffChange', s:aqua, s:bg0, s:inverse)
 call s:HighLight('DiffText',   s:yellow, s:bg0, s:inverse)
 
 " }}}
+
 " Spelling: {{{
 
 if has("spell")
@@ -703,18 +718,21 @@ endif
 " }}}
 
 " Plugin specific -------------------------------------------------------------
+
 " EasyMotion: {{{
 
 hi! link EasyMotionTarget Search
 hi! link EasyMotionShade Comment
 
 " }}}
+
 " Sneak: {{{
 
 hi! link Sneak Search
 hi! link SneakLabel Search
 
 " }}}
+
 " Indent Guides: {{{
 
 if !exists('g:indent_guides_auto_colors')
@@ -732,6 +750,7 @@ if g:indent_guides_auto_colors == 0
 endif
 
 " }}}
+
 " IndentLine: {{{
 
 if !exists('g:indentLine_color_term')
@@ -742,6 +761,7 @@ if !exists('g:indentLine_color_gui')
 endif
 
 " }}}
+
 " Rainbow Parentheses: {{{
 
 if !exists('g:rbpt_colorpairs')
@@ -769,6 +789,7 @@ let g:niji_dark_colours = g:rbpt_colorpairs
 let g:niji_light_colours = g:rbpt_colorpairs
 
 "}}}
+
 " GitGutter: {{{
 
 hi! link GitGutterAdd BlackholeGreenSign
@@ -777,6 +798,7 @@ hi! link GitGutterDelete BlackholeRedSign
 hi! link GitGutterChangeDelete BlackholeAquaSign
 
 " }}}
+
 " GitCommit: "{{{
 
 hi! link gitcommitBlank BlackholeRedBold
@@ -789,6 +811,7 @@ hi! link gitcommitSelectedType BlackholeGreenBold
 hi! link gitcommitSummary BlackholeAqua
 
 " }}}
+
 " Signify: {{{
 
 hi! link SignifySignAdd BlackholeGreenSign
@@ -796,6 +819,7 @@ hi! link SignifySignChange BlackholeAquaSign
 hi! link SignifySignDelete BlackholeRedSign
 
 " }}}
+
 " Syntastic: {{{
 
 call s:HighLight('SyntasticError', s:none, s:none, s:undercurl, s:red)
@@ -805,11 +829,14 @@ hi! link SyntasticErrorSign BlackholeRedSign
 hi! link SyntasticWarningSign BlackholeYellowSign
 
 " }}}
+
 " Signature: {{{
+
 hi! link SignatureMarkText   BlackholeBlueSign
 hi! link SignatureMarkerText BlackholePurpleSign
 
 " }}}
+
 " ShowMarks: {{{
 
 hi! link ShowMarksHighLightl BlackholeBlueSign
@@ -818,6 +845,7 @@ hi! link ShowMarksHighLighto BlackholeBlueSign
 hi! link ShowMarksHighLightm BlackholeBlueSign
 
 " }}}
+
 " CtrlP: {{{
 
 hi! link CtrlPMatch BlackholeYellow
@@ -831,6 +859,7 @@ call s:HighLight('CtrlPMode2', s:bg0, s:blue, s:bold)
 call s:HighLight('CtrlPStats', s:fg4, s:bg2, s:bold)
 
 " }}}
+
 " Startify: {{{
 
 hi! link StartifyBracket BlackholeFg3
@@ -844,6 +873,7 @@ hi! link StartifyHeader BlackholeOrange
 hi! link StartifyFooter BlackholeBg2
 
 " }}}
+
 " Vimshell: {{{
 
 let g:vimshell_escape_colors = [
@@ -854,6 +884,7 @@ let g:vimshell_escape_colors = [
       \ ]
 
 " }}}
+
 " BufTabLine: {{{
 
 call s:HighLight('BufTabLineCurrent', s:bg0, s:fg4)
@@ -862,6 +893,7 @@ call s:HighLight('BufTabLineHidden', s:bg4, s:bg1)
 call s:HighLight('BufTabLineFill', s:bg0, s:bg0)
 
 " }}}
+
 " Asynchronous Lint Engine: {{{
 
 call s:HighLight('ALEError', s:none, s:none, s:undercurl, s:red)
@@ -873,12 +905,14 @@ hi! link ALEWarningSign BlackholeYellowSign
 hi! link ALEInfoSign BlackholeBlueSign
 
 " }}}
+
 " Dirvish: {{{
 
 hi! link DirvishPathTail BlackholeAqua
 hi! link DirvishArg BlackholeYellow
 
 " }}}
+
 " Netrw: {{{
 
 hi! link netrwDir BlackholeAqua
@@ -893,6 +927,7 @@ hi! link netrwCmdSep BlackholeFg3
 hi! link netrwVersion BlackholeGreen
 
 " }}}
+
 " NERDTree: {{{
 
 hi! link NERDTreeDir BlackholeGrayBold
@@ -913,12 +948,14 @@ hi! link NERDTreeToggleOn BlackholeGreen
 hi! link NERDTreeToggleOff BlackholeRed
 
 " }}}
+
 " Vim Multiple Cursors: {{{
 
 call s:HighLight('multiple_cursors_cursor', s:none, s:none, s:inverse)
 call s:HighLight('multiple_cursors_visual', s:none, s:bg2)
 
 " }}}
+
 " coc.nvim: {{{
 
 hi! link CocErrorSign BlackholeRedSign
@@ -945,6 +982,7 @@ call s:HighLight('CocHintHighlight', s:none, s:none, s:undercurl, s:blue)
 " }}}
 
 " Filetype specific -----------------------------------------------------------
+
 " Diff: {{{
 
 hi! link diffAdded BlackholeGreen
@@ -957,6 +995,7 @@ hi! link diffNewFile BlackholeYellow
 hi! link diffLine BlackholeBlue
 
 " }}}
+
 " Html: {{{
 
 hi! link htmlTag BlackholeBlue
@@ -983,6 +1022,7 @@ call s:HighLight('htmlUnderlineItalic', s:vimfg, s:vimbg, s:underline . s:italic
 call s:HighLight('htmlItalic', s:vimfg, s:vimbg, s:italic)
 
 " }}}
+
 " Xml: {{{
 
 hi! link xmlTag BlackholeBlue
@@ -1006,7 +1046,9 @@ hi! link xmlAttribPunct BlackholeGray
 
 hi! link xmlEntity BlackholeOrange
 hi! link xmlEntityPunct BlackholeOrange
+
 " }}}
+
 " Vim: {{{
 
 call s:HighLight('vimCommentTitle', s:fg4_256, s:none, s:bold . s:italicize_comments)
@@ -1022,6 +1064,7 @@ hi! link vimGroup BlackholePurple
 hi! link vimVar BlackholeAqua
 
 " }}}
+
 " Clojure: {{{
 
 hi! link clojureKeyword BlackholeBlue
@@ -1052,12 +1095,14 @@ hi! link clojureQuote BlackholeYellow
 hi! link clojureUnquote BlackholeYellow
 
 " }}}
+
 " C: {{{
 
 hi! link cOperator BlackholePurple
 hi! link cStructure BlackholeOrange
 
 " }}}
+
 " Python: {{{
 
 hi! link pythonBuiltin BlackholeOrangeBold
@@ -1080,6 +1125,7 @@ hi! link pythonRepeat BlackholeRedBold
 hi! link pythonDottedName BlackholeGreenBold
 
 " }}}
+
 " CSS: {{{
 
 hi! link cssBraces BlackholeBlue
@@ -1115,6 +1161,7 @@ hi! link cssColorProp BlackholeAqua
 hi! link cssGeneratedContentProp BlackholeAqua
 
 " }}}
+
 " JavaScript: {{{
 
 hi! link javaScriptBraces BlackholeFg1
@@ -1126,6 +1173,7 @@ hi! link javaScriptNull BlackholePurple
 hi! link javaScriptParens BlackholeFg3
 
 " }}}
+
 " YAJS: {{{
 
 hi! link javascriptImport BlackholeAqua
@@ -1207,6 +1255,7 @@ hi! link javascriptAsyncFuncKeyword BlackholeRed
 hi! link javascriptAwaitFuncKeyword BlackholeRed
 
 " }}}
+
 " PanglossJS: {{{
 
 hi! link jsClassKeyword BlackholeAquaBold
@@ -1225,6 +1274,7 @@ hi! link jsUndefined BlackholePurple
 hi! link jsClassDefinition BlackholeWhiteBold
 
 " }}}
+
 " TypeScript: {{{
 
 hi! link typeScriptReserved BlackholeAqua
@@ -1250,6 +1300,7 @@ hi! link typeScriptNull BlackholePurple
 hi! link typeScriptInterpolationDelimiter BlackholeAqua
 
 " }}}
+
 " PureScript: {{{
 
 hi! link purescriptModuleKeyword BlackholeAqua
@@ -1270,6 +1321,7 @@ hi! link purescriptConditional BlackholeOrange
 hi! link purescriptBacktick BlackholeOrange
 
 " }}}
+
 " CoffeeScript: {{{
 
 hi! link coffeeExtendedOp BlackholeFg3
@@ -1279,6 +1331,7 @@ hi! link coffeeParen BlackholeFg3
 hi! link coffeeBracket BlackholeOrange
 
 " }}}
+
 " Ruby: {{{
 
 hi! link rubyClass BlackholeAquaBold
@@ -1287,12 +1340,14 @@ hi! link rubyStringDelimiter BlackholeGreen
 hi! link rubyInterpolationDelimiter BlackholeAqua
 
 " }}}
+
 " ObjectiveC: {{{
 
 hi! link objcTypeModifier BlackholeRed
 hi! link objcDirective BlackholeBlue
 
 " }}}
+
 " Go: {{{
 
 hi! link goDirective BlackholeAqua
@@ -1302,6 +1357,7 @@ hi! link goDeclType BlackholeBlue
 hi! link goBuiltins BlackholeOrange
 
 " }}}
+
 " Lua: {{{
 
 hi! link luaIn BlackholeRed
@@ -1309,6 +1365,7 @@ hi! link luaFunction BlackholeAqua
 hi! link luaTable BlackholeOrange
 
 " }}}
+
 " MoonScript: {{{
 
 hi! link moonSpecialOp BlackholeFg3
@@ -1317,6 +1374,7 @@ hi! link moonFunction BlackholeFg3
 hi! link moonObject BlackholeYellow
 
 " }}}
+
 " Java: {{{
 
 hi! link javaAnnotation BlackholeBlue
@@ -1336,6 +1394,7 @@ hi! link javaTypedef BlackholeAqua
 hi! link javaVarArg BlackholeGreen
 
 " }}}
+
 " Elixir: {{{
 
 hi! link elixirDocString Comment
@@ -1346,6 +1405,7 @@ hi! link elixirInterpolationDelimiter BlackholeAqua
 hi! link elixirModuleDeclaration BlackholeYellow
 
 " }}}
+
 " Scala: {{{
 
 " NB: scala vim syntax file is kinda horrible
@@ -1367,6 +1427,7 @@ hi! link scalaInstanceDeclaration BlackholeFg1
 hi! link scalaInterpolation BlackholeAqua
 
 " }}}
+
 " Markdown: {{{
 
 call s:HighLight('markdownItalic', s:fg3, s:none, s:italic)
@@ -1400,6 +1461,7 @@ call s:HighLight('markdownLinkText', s:gray, s:none, s:underline)
 hi! link markdownIdDeclaration markdownLinkText
 
 " }}}
+
 " Haskell: {{{
 
 " hi! link haskellType BlackholeYellow
@@ -1434,6 +1496,7 @@ hi! link haskellString BlackholeGreen
 hi! link haskellChar BlackholeGreen
 
 " }}}
+
 " Json: {{{
 
 hi! link jsonKeyword BlackholeGreen
@@ -1445,7 +1508,8 @@ hi! link jsonString BlackholeFg1
 
 
 " Functions -------------------------------------------------------------------
-" Search Highlighting Cursor {{{
+
+" Search Highlighting Cursor: {{{
 
 function! BlackholeHlsShowCursor()
   call s:HighLight('Cursor', s:bg0, s:hls_cursor)
