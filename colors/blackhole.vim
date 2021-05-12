@@ -1,4 +1,3 @@
-"
 " -----------------------------------------------------------------------------
 " Name: blackhole
 " File: blackhole.vim
@@ -612,15 +611,15 @@ call s:HighLight('Todo', s:gray, s:none, s:bold . s:italic)
 call s:HighLight('Error', s:red, s:none, s:bold . s:inverse)
 
 " Generic statement
-hi! link Statement BlackholeRedBold
+hi! link Statement BlackholeRed
 " if, then, else, endif, swicth, etc.
-hi! link Conditional BlackholeRedBold
+hi! link Conditional BlackholeRed
 " for, do, while, etc.
-hi! link Repeat BlackholeRedBold
+hi! link Repeat BlackholeRed
 " case, default, etc.
-hi! link Label BlackholeRedBold
+hi! link Label BlackholeRed
 " try, catch, throw
-hi! link Exception BlackholeRedBold
+hi! link Exception BlackholeRed
 " sizeof, "+", "*", etc.
 hi! link Operator BlackholeOrange
 " Any other keyword
@@ -629,7 +628,7 @@ hi! link Keyword BlackholeRed
 " Variable name
 hi! link Identifier BlackholeBlue
 " Function name
-hi! link Function BlackholeWhiteBold
+hi! link Function BlackholeGreenBold
 
 " Generic preprocessor
 hi! link PreProc BlackholeBlue
@@ -645,7 +644,7 @@ hi! link PreCondit BlackholeAqua
 " Generic constant
 hi! link Constant BlackholePurple
 " Character constant: 'c', '/n'
-hi! link Character BlackholePurpleBold
+hi! link Character BlackholePurple
 " String constant: "this is a string"
 if g:blackhole_improved_strings == 0
   call s:HighLight('String',  s:green, s:none, s:italicize_strings)
@@ -660,7 +659,7 @@ hi! link Number BlackholePurple
 hi! link Float BlackholePurple
 
 " Generic type
-hi! link Type BlackholeWhiteBold
+hi! link Type BlackholeYellow
 " static, register, volatile, etc
 hi! link StorageClass BlackholeOrange
 " struct, union, enum, etc.
@@ -931,7 +930,7 @@ hi! link netrwVersion BlackholeGreen
 " NERDTree: {{{
 
 hi! link NERDTreeDir BlackholeGrayBold
-hi! link NERDTreeDirSlash BlackholeWhite
+hi! link NERDTreeDirSlash BlackholeOrangeBold
 hi! link NERDTreeFlags BlackholeGray
 
 hi! link NERDTreeOpenable BlackholeFg3
@@ -1105,22 +1104,22 @@ hi! link cStructure BlackholeOrange
 
 " Python: {{{
 
-hi! link pythonBuiltin BlackholeOrangeBold
+hi! link pythonBuiltin BlackholeOrange
 hi! link pythonBuiltinObj BlackholeOrange
 hi! link pythonBuiltinFunc BlackholeOrange
-hi! link pythonFunction BlackholeWhiteBold
-hi! link pythonStatement BlackholeAquaBold
-hi! link pythonDecorator BlackholeRedBold
+hi! link pythonFunction BlackholeAqua
+hi! link pythonStatement BlackholeAqua
+hi! link pythonDecorator BlackholeRed
 hi! link pythonInclude BlackholePurple
 hi! link pythonImport BlackholePurple
 hi! link pythonRun BlackholeBlue
 hi! link pythonCoding BlackholeBlue
-hi! link pythonOperator BlackholeRedBold
-hi! link pythonException BlackholeRedBold
+hi! link pythonOperator BlackholeRed
+hi! link pythonException BlackholeRed
 hi! link pythonExceptions BlackholePurple
 hi! link pythonBoolean BlackholePurple
 hi! link pythonDot BlackholeOrange
-hi! link pythonConditional BlackholeRedBold
+hi! link pythonConditional BlackholeRed
 hi! link pythonRepeat BlackholeRedBold
 hi! link pythonDottedName BlackholeGreenBold
 
@@ -1131,7 +1130,7 @@ hi! link pythonDottedName BlackholeGreenBold
 hi! link cssBraces BlackholeBlue
 hi! link cssFunctionName BlackholeYellow
 hi! link cssIdentifier BlackholeOrange
-hi! link cssClassName BlackholeWhiteBold
+hi! link cssClassName BlackholeGreen
 hi! link cssColor BlackholeBlue
 hi! link cssSelectorOp BlackholeBlue
 hi! link cssSelectorOp2 BlackholeBlue
@@ -1258,20 +1257,20 @@ hi! link javascriptAwaitFuncKeyword BlackholeRed
 
 " PanglossJS: {{{
 
-hi! link jsClassKeyword BlackholeAquaBold
+hi! link jsClassKeyword BlackholeAqua
 hi! link jsExtendsKeyword BlackholeAqua
-hi! link jsAsyncKeyword BlackholeRedBold
-hi! link jsForAwait BlackholeRedBold
+hi! link jsAsyncKeyword BlackholeRed
+hi! link jsForAwait BlackholeRed
 hi! link jsExportDefault BlackholeAqua
 hi! link jsTemplateBraces BlackholeAqua
 hi! link jsGlobalNodeObjects BlackholeFg1
 hi! link jsGlobalObjects BlackholeFg1
-hi! link jsFunction BlackholeAquaBold
+hi! link jsFunction BlackholeAqua
 hi! link jsFuncParens BlackholeFg3
 hi! link jsParens BlackholeFg3
 hi! link jsNull BlackholePurple
 hi! link jsUndefined BlackholePurple
-hi! link jsClassDefinition BlackholeWhiteBold
+hi! link jsClassDefinition BlackholeYellow
 
 " }}}
 
@@ -1280,10 +1279,9 @@ hi! link jsClassDefinition BlackholeWhiteBold
 hi! link typeScriptReserved BlackholeAqua
 hi! link typeScriptImport BlackholePurple
 hi! link typeScriptLabel BlackholeAqua
-
-hi! link typescriptClassKeyword BlackholeAquaBold
-hi! link typeScriptFuncKeyword BlackholeAquaBold
-hi! link typeScriptIdentifier BlackholeAquaBold
+hi! link typescriptClassKeyword BlackholeAqua
+hi! link typeScriptFuncKeyword BlackholeAqua
+hi! link typeScriptIdentifier BlackholeAqua
 hi! link typeScriptBraces BlackholeFg1
 hi! link typeScriptEndColons BlackholeFg1
 hi! link typeScriptDOMObjects BlackholeFg1
@@ -1334,8 +1332,8 @@ hi! link coffeeBracket BlackholeOrange
 
 " Ruby: {{{
 
-hi! link rubyClass BlackholeAquaBold
-hi! link rubyDefine BlackholeAquaBold
+hi! link rubyClass BlackholeAqua
+hi! link rubyDefine BlackholeAqua
 hi! link rubyStringDelimiter BlackholeGreen
 hi! link rubyInterpolationDelimiter BlackholeAqua
 
@@ -1387,8 +1385,8 @@ hi! link javaParen3 BlackholeFg3
 hi! link javaParen4 BlackholeFg3
 hi! link javaParen5 BlackholeFg3
 hi! link javaOperator BlackholeOrange
-hi! link javaClassDecl BlackholeAquaBold
-hi! link javaAnnotation BlackholeYellowBold
+hi! link javaClassDecl BlackholeAqua
+hi! link javaAnnotation BlackholeYellow
 hi! link javaTypedef BlackholeAqua
 
 hi! link javaVarArg BlackholeGreen
