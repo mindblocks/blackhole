@@ -89,7 +89,7 @@ let s:color = {}
 
 " fill it with absolute colors
 let s:color.black          = ['#000000', 0]       " 0, 0, 0
-let s:color.white          = ['#F3F3F3', 255]     " 243, 243, 243
+let s:color.white          = ['#ffffff', 255]     " 255, 255, 255
 
 let s:color.dark0_hard     = ['#000000', 0]       " 0, 0, 0
 let s:color.dark0          = ['#101010', 233]     " 16, 16, 16
@@ -167,9 +167,9 @@ endif
 " }}}
 " Setup Colors: {{{
 
-let s:vim_bg = ['bg', 'bg']
-let s:vim_fg = ['fg', 'fg']
-let s:none = ['NONE', 'NONE']
+let s:vimbg = ['bg',   'bg'  ]
+let s:vimfg = ['fg',   'fg'  ]
+let s:none  = ['NONE', 'NONE']
 
 " determine relative colors
 
@@ -211,7 +211,7 @@ if s:isdark
 else
 
   """ Light Mode
-  let s:bg0  = s:color.light0
+  let s:bg0  = s:color.white
   if g:blackhole_contrast_light == 'soft'
     let s:bg0  = s:color.light0_soft
   elseif g:blackhole_contrast_light == 'hard'
@@ -234,7 +234,7 @@ else
   let s:fg4_256 = s:color.dark4_256
 
   let s:black  = s:color.black
-  let s:white  = s:color.white
+  let s:white  = s:color.light0_hard
   let s:red    = s:color.faded_red
   let s:green  = s:color.faded_green
   let s:yellow = s:color.faded_yellow
@@ -489,8 +489,10 @@ call s:HighLight('Normal', s:fg1, s:black)
 
 if s:isdark
   set background=dark
+  call s:HighLight('Normal', s:fg1, s:black)
 else
   set background=light
+  call s:HighLight('Normal', s:fg1, s:white)
 endif
 
 if version >= 700
@@ -721,11 +723,11 @@ endif
 
 if g:indent_guides_auto_colors == 0
   if g:blackhole_invert_indent_guides == 0
-    call s:HighLight('IndentGuidesOdd', s:vim_bg, s:bg2)
-    call s:HighLight('IndentGuidesEven', s:vim_bg, s:bg1)
+    call s:HighLight('IndentGuidesOdd', s:vimbg, s:bg2)
+    call s:HighLight('IndentGuidesEven', s:vimbg, s:bg1)
   else
-    call s:HighLight('IndentGuidesOdd', s:vim_bg, s:bg2, s:inverse)
-    call s:HighLight('IndentGuidesEven', s:vim_bg, s:bg3, s:inverse)
+    call s:HighLight('IndentGuidesOdd', s:vimbg, s:bg2, s:inverse)
+    call s:HighLight('IndentGuidesEven', s:vimbg, s:bg3, s:inverse)
   endif
 endif
 
@@ -744,23 +746,23 @@ endif
 
 if !exists('g:rbpt_colorpairs')
   let g:rbpt_colorpairs =
-    \ [
-      \ ['blue', '#458588'], ['magenta', '#b16286'],
-      \ ['red',  '#cc241d'], ['166',     '#d65d0e']
-    \ ]
+        \ [
+        \ ['blue', '#458588'], ['magenta', '#b16286'],
+        \ ['red',  '#cc241d'], ['166',     '#d65d0e']
+        \ ]
 endif
 
 let g:rainbow_guifgs = [ '#d65d0e', '#cc241d', '#b16286', '#458588' ]
 let g:rainbow_ctermfgs = [ '166', 'red', 'magenta', 'blue' ]
 
 if !exists('g:rainbow_conf')
-   let g:rainbow_conf = {}
+  let g:rainbow_conf = {}
 endif
 if !has_key(g:rainbow_conf, 'guifgs')
-   let g:rainbow_conf['guifgs'] = g:rainbow_guifgs
+  let g:rainbow_conf['guifgs'] = g:rainbow_guifgs
 endif
 if !has_key(g:rainbow_conf, 'ctermfgs')
-   let g:rainbow_conf['ctermfgs'] = g:rainbow_ctermfgs
+  let g:rainbow_conf['ctermfgs'] = g:rainbow_ctermfgs
 endif
 
 let g:niji_dark_colours = g:rbpt_colorpairs
@@ -845,11 +847,11 @@ hi! link StartifyFooter BlackholeBg2
 " Vimshell: {{{
 
 let g:vimshell_escape_colors = [
-  \ s:bg4[0], s:red[0], s:green[0], s:yellow[0],
-  \ s:blue[0], s:purple[0], s:aqua[0], s:fg4[0],
-  \ s:bg0[0], s:red[0], s:green[0], s:orange[0],
-  \ s:blue[0], s:purple[0], s:aqua[0], s:fg0[0]
-  \ ]
+      \ s:bg4[0], s:red[0], s:green[0], s:yellow[0],
+      \ s:blue[0], s:purple[0], s:aqua[0], s:fg4[0],
+      \ s:bg0[0], s:red[0], s:green[0], s:orange[0],
+      \ s:blue[0], s:purple[0], s:aqua[0], s:fg0[0]
+      \ ]
 
 " }}}
 " BufTabLine: {{{
@@ -971,14 +973,14 @@ call s:HighLight('htmlLink', s:fg4, s:none, s:underline)
 
 hi! link htmlSpecialChar BlackholeOrange
 
-call s:HighLight('htmlBold', s:vim_fg, s:vim_bg, s:bold)
-call s:HighLight('htmlBoldUnderline', s:vim_fg, s:vim_bg, s:bold . s:underline)
-call s:HighLight('htmlBoldItalic', s:vim_fg, s:vim_bg, s:bold . s:italic)
-call s:HighLight('htmlBoldUnderlineItalic', s:vim_fg, s:vim_bg, s:bold . s:underline . s:italic)
+call s:HighLight('htmlBold', s:vimfg, s:vimbg, s:bold)
+call s:HighLight('htmlBoldUnderline', s:vimfg, s:vimbg, s:bold . s:underline)
+call s:HighLight('htmlBoldItalic', s:vimfg, s:vimbg, s:bold . s:italic)
+call s:HighLight('htmlBoldUnderlineItalic', s:vimfg, s:vimbg, s:bold . s:underline . s:italic)
 
-call s:HighLight('htmlUnderline', s:vim_fg, s:vim_bg, s:underline)
-call s:HighLight('htmlUnderlineItalic', s:vim_fg, s:vim_bg, s:underline . s:italic)
-call s:HighLight('htmlItalic', s:vim_fg, s:vim_bg, s:italic)
+call s:HighLight('htmlUnderline', s:vimfg, s:vimbg, s:underline)
+call s:HighLight('htmlUnderlineItalic', s:vimfg, s:vimbg, s:underline . s:italic)
+call s:HighLight('htmlItalic', s:vimfg, s:vimbg, s:italic)
 
 " }}}
 " Xml: {{{
